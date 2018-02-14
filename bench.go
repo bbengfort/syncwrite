@@ -26,6 +26,7 @@ func Benchmark(log Log, path string, n, threads int) (float64, error) {
 	latencies := make([]time.Duration, threads)
 
 	// Run the specified number of Go routines
+	start := time.Now()
 	for i := 0; i < threads; i++ {
 		group.Add(1)
 		go func(idx int) {
@@ -36,18 +37,13 @@ func Benchmark(log Log, path string, n, threads int) (float64, error) {
 
 	// Wait for the group to complete
 	group.Wait()
+	totalLatency := time.Since(start)
 
 	// Check for errors
 	for _, err := range errors {
 		if err != nil {
 			return 0.0, err
 		}
-	}
-
-	// Sum the latencies
-	var totalLatency time.Duration
-	for _, latency := range latencies {
-		totalLatency += latency
 	}
 
 	// Compute the throughput
