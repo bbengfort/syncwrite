@@ -43,25 +43,31 @@ var _ = Describe("Write Throughput", func() {
 			throughput, err = Benchmark(log, path, 100000, 1)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
 
 		Measure("2 thread throughput", func(b Benchmarker) {
 			throughput, err = Benchmark(log, path, 50000, 1)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
 
 		Measure("4 thread throughput", func(b Benchmarker) {
 			throughput, err = Benchmark(log, path, 25000, 1)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
 
 		Measure("8 thread throughput", func(b Benchmarker) {
 			throughput, err = Benchmark(log, path, 12500, 8)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
+
+		Measure("16 thread throughput", func(b Benchmarker) {
+			throughput, err = Benchmark(log, path, 6250, 16)
+			Ω(err).ShouldNot(HaveOccurred())
+			b.RecordValue("throughput (ops/sec)", throughput)
+		}, 15)
 
 	})
 
@@ -75,25 +81,31 @@ var _ = Describe("Write Throughput", func() {
 			throughput, err = Benchmark(log, path, 100000, 1)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
 
 		Measure("2 thread throughput", func(b Benchmarker) {
 			throughput, err = Benchmark(log, path, 50000, 1)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
 
 		Measure("4 thread throughput", func(b Benchmarker) {
 			throughput, err = Benchmark(log, path, 25000, 1)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
 
 		Measure("8 thread throughput", func(b Benchmarker) {
 			throughput, err = Benchmark(log, path, 12500, 8)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
+
+		Measure("16 thread throughput", func(b Benchmarker) {
+			throughput, err = Benchmark(log, path, 6250, 16)
+			Ω(err).ShouldNot(HaveOccurred())
+			b.RecordValue("throughput (ops/sec)", throughput)
+		}, 15)
 
 	})
 
@@ -107,25 +119,31 @@ var _ = Describe("Write Throughput", func() {
 			throughput, err = Benchmark(log, path, 100000, 1)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
 
 		Measure("2 thread throughput", func(b Benchmarker) {
 			throughput, err = Benchmark(log, path, 50000, 1)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
 
 		Measure("4 thread throughput", func(b Benchmarker) {
 			throughput, err = Benchmark(log, path, 25000, 1)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
 
 		Measure("8 thread throughput", func(b Benchmarker) {
 			throughput, err = Benchmark(log, path, 12500, 8)
 			Ω(err).ShouldNot(HaveOccurred())
 			b.RecordValue("throughput (ops/sec)", throughput)
-		}, 10)
+		}, 15)
+
+		Measure("16 thread throughput", func(b Benchmarker) {
+			throughput, err = Benchmark(log, path, 6250, 16)
+			Ω(err).ShouldNot(HaveOccurred())
+			b.RecordValue("throughput (ops/sec)", throughput)
+		}, 15)
 
 	})
 
