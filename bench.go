@@ -23,14 +23,13 @@ func Benchmark(log Log, path string, n, threads int) (float64, error) {
 	// Create the parallel constructs
 	group := new(sync.WaitGroup)
 	errors := make([]error, threads)
-	latencies := make([]time.Duration, threads)
 
 	// Run the specified number of Go routines
 	start := time.Now()
 	for i := 0; i < threads; i++ {
 		group.Add(1)
 		go func(idx int) {
-			latencies[idx], errors[idx] = benchmarker(n, action)
+			errors[idx] = benchmarker(n, action)
 			group.Done()
 		}(i)
 	}
@@ -60,12 +59,11 @@ type action func() error
 // run a single go routine that runs the action N times then returns the
 // total time it took to run all n actions. If an error occurs in the action,
 // then the error is returned.
-func benchmarker(n int, f action) (latency time.Duration, err error) {
-	start := time.Now()
+func benchmarker(n int, f action) (err error) {
 	for i := 0; i < n; i++ {
 		if err = f(); err != nil {
-			return 0, err
+			return err
 		}
 	}
-	return time.Since(start), nil
+	return nil
 }
